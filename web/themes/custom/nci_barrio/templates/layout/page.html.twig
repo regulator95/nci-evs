@@ -172,6 +172,7 @@ We got this - NCI Barrio Sub Theme
                 </aside>
             </div>
         {% endif %}
+        <!--
         <footer class="site-footer">
             {% block footer %}
                 <div class="{{ container }}">
@@ -191,5 +192,65 @@ We got this - NCI Barrio Sub Theme
                 </div>
             {% endblock %}
         </footer>
+        -->
+        <!-- New Footer -->
+
+        <footer id="new-footer" class="footer site-footer" role="contentinfo">
+            <div class="region region-footer container">
+                <nav role="navigation">
+                    <ul class="menu">
+                        <li>
+                            <a href="{{ home_link }}">Home</a>
+                        </li>
+                        <li>
+                            <span>|</span>
+                            <a href="/contact-us">Contact Us</a>
+                        </li>
+                        {% if logged_in %}
+                            <li>
+                                <span>|</span>
+                                <a href="/user/logout">Log Out</a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <span>|</span>
+                            <a href="http://www.cancer.gov/global/web/policies/accessibility" target="_blank">Accessibility</a>
+                        </li>
+                        <li>
+                            <span>|</span>
+                            <a href="http://www.cancer.gov/global/web/policies" target="_blank">Policies</a>
+                        </li>
+                        <li>
+                            <span>|</span><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav role="navigation">
+                    <ul class="menu">
+                        <li>
+                            <a href="http://www.dhhs.gov/" target="_blank">U.S. Department of Health and Human Services</a>
+                        </li>
+                        <li>
+                            <span>|</span>
+                            <a href="http://www.nih.gov/" target="_blank">National Institutes of Health</a>
+                        </li>
+                        <li>
+                            <span>|</span>
+                            <a href="http://www.cancer.gov/" target="_blank">National Cancer Institute </a>
+                        </li>
+                        <li>
+                            <span>|</span>
+                            <a href="http://www.usa.gov/" target="_blank">USA.gov</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div>
+                    <p class="tagline">NIH ... Turning Discovery Into Health <a href="/user" style="text-decoration: none;color:white;cursor: pointer;"><sup>®</sup></a></p>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+
     </div>
 </div>

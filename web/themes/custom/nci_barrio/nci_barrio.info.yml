@@ -8,6 +8,7 @@ base theme: bootstrap_barrio
 libraries:
   - nci_barrio/bootstrap_cdn
   - nci_barrio/global-styling
+  - nci_barrio/global-styling-nci
 
 regions:
   top_header: 'Top Header'
