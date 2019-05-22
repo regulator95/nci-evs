@@ -6,6 +6,7 @@ dependencies:
     - 'block_content:basic:7909a784-2bff-46f2-805f-577704c067d2'
   module:
     - block_content
+    - system
   theme:
     - nci_barrio
 id: nci_barrio_evsrelatedlinks
@@ -22,4 +23,9 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /user/login
+    negate: true
+    context_mapping: {  }
