@@ -85,6 +85,11 @@
         ]
     },
     "extra": {
+	"patches": {
+	    "drupal/ldap": {
+      	        "drupalAddUser": "https://www.drupal.org/files/issues/2019-05-08/ldap-3023470-3.x-6.patch"
+    	     }
+  	},
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
