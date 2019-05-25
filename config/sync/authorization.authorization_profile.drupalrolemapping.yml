@@ -1,0 +1,32 @@
+uuid: 0a06c7aa-e0de-497c-a500-ce8a355c2cac
+langcode: en
+status: true
+dependencies: {  }
+id: drupalrolemapping
+label: DrupalRoleMapping
+provider: ldap_provider
+provider_config:
+  status:
+    server: eventsldap
+    only_ldap_authenticated: false
+  filter_and_mappings:
+    use_first_attr_as_groupid: false
+provider_mappings:
+  -
+    query: 'CN=NCI GP-SPLADMIN,OU=Groups,OU=NCI,OU=NIH,OU=AD,DC=nih,DC=gov'
+    is_regex: false
+  -
+    query: 'CN=NCI GP-SPLMANAGER,OU=Groups,OU=NCI,OU=NIH,OU=AD,DC=nih,DC=gov'
+    is_regex: false
+consumer: authorization_drupal_roles
+consumer_config: {  }
+consumer_mappings:
+  -
+    role: administrator
+  -
+    role: manager
+synchronization_modes:
+  user_logon: '0'
+synchronization_actions:
+  revoke_provider_provisioned: revoke_provider_provisioned
+  create_consumers: '0'
