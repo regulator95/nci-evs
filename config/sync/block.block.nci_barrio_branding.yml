@@ -11,7 +11,7 @@ _core:
 id: nci_barrio_branding
 theme: nci_barrio
 region: top_header_form
-weight: -7
+weight: -6
 provider: null
 plugin: system_branding_block
 settings:
