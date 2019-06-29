@@ -4,7 +4,6 @@ global-styling-nci:
       css/navbar.css: {}
       css/cancer.css: {}
       css/style.css: {}
-
 global-styling:
   version: VERSION
   js:
