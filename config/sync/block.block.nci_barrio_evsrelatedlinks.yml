@@ -19,13 +19,13 @@ settings:
   id: 'block_content:7909a784-2bff-46f2-805f-577704c067d2'
   label: 'Related Links '
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: /user/login
+    pages: "/user/login\r\n/search/*"
     negate: true
     context_mapping: {  }
