@@ -1,6 +1,14 @@
 #!/bin/bash
 
-drushcmd = '/local/drupal/site/vendor/drush/drush/drush'
+
+cp -p /tmp/services.yml /local/drupal/site/web/sites/default/
+cp -p /tmp/settings.php /local/drupal/site/web/sites/default/
+cd /local/drupal/site
+echo "*** Compose install"
+echo ""
+
+composer install
+
 echo "*** Setting the website on docker after compose install"
 echo ""
 echo "*Setting up directory permissions"
