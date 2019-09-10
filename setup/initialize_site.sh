@@ -1,9 +1,16 @@
 #!/bin/bash
 
+cd /local/drupal/site
 
 cp -p /tmp/services.yml /local/drupal/site/web/sites/default/
 cp -p /tmp/settings.php /local/drupal/site/web/sites/default/
-cd /local/drupal/site
+cp /tmp/.htaccess /local/drupal/site
+
+if [ -d "/local/drupal/site/docker/apache" ];then
+    echo "Adding addition apache config files"
+    cp /local/drupal/site/docker/apache/* /etc/httpd/conf.d
+fi
+echo ""
 echo "*** Compose install"
 echo ""
 
@@ -21,7 +28,7 @@ echo ""
 echo "*Add symbolic link to shared volume"
 echo "username = $username (i.e. the project name for docker)"
 echo "ln -s /mnt/s3fs/$username /local/drupal/site/web/sites/default/files/assets/s3fs"
-ln -s /mnt/s3fs /local/drupal/site/web/sites/default/files/assets/s3fs
+#ln -s /mnt/s3fs /local/drupal/site/web/sites/default/files/assets/s3fs
 #echo "ls -latr"
 #ls -latr
 
@@ -32,6 +39,6 @@ drush sql-cli < /local/drupal/site/database.sql
 
 echo "Adding server info"
 
-/local/drupal/site/setup/enable_ldap.sh
+./enable_ldap.sh
 
 
