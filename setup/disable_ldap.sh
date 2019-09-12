@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#cd /local/drupal/site
-
 echo "Disable ldap server info before export config or saving database."
 echo "*** Mask server info"
 echo ""

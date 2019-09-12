@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#cd /local/drupal/site
-
 echo "Peform this after loading database or importing config"
 echo ""
 echo "* Set server info"
