@@ -42,6 +42,8 @@ drush sql-cli < /local/drupal/site/database.sql
 
 echo "Enable LDAP"
 
-.setup/enable_ldap.sh
+./setup/enable_ldap.sh
+
+drush cr
 
 
