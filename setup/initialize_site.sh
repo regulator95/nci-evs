@@ -2,9 +2,9 @@
 
 cd /local/drupal/site
 
-cp -p /tmp/services.yml /local/drupal/site/web/sites/default/
-cp -p /tmp/settings.php /local/drupal/site/web/sites/default/
-cp /tmp/.htaccess /local/drupal/site
+#cp -p /tmp/services.yml /local/drupal/site/web/sites/default/
+#cp -p /tmp/settings.php /local/drupal/site/web/sites/default/
+#cp /tmp/.htaccess /local/drupal/site
 
 if [ -d "/local/drupal/site/docker/apache" ];then
     echo "Adding addition apache config files"
@@ -19,7 +19,9 @@ composer install
 echo "*** Setting the website on docker after compose install"
 echo ""
 echo "*Setting up directory permissions"
+chown -R root:apache /local/drupal
 echo "chmod -R 775 /local/drupal/site/web/sites/default/files"
+echo "Recursive doesn't work for s3fs.  So skipping for now."
 chmod -R 775 /local/drupal/site/web/sites/default/files
 echo "chmod -R 664 /local/drupal/site/web/sites/default/s*"
 chmod -R 664 /local/drupal/site/web/sites/default/s*
