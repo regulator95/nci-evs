@@ -14,7 +14,7 @@ orphanedDrupalAcctBehavior: ldap_user_orphan_do_not_check
 orphanedCheckQty: 100
 orphanedAccountCheckInterval: weekly
 userConflictResolve: log
-manualAccountConflict: conflict_reject
+manualAccountConflict: conflict_no_ldap_associate
 acctCreation: ldap_behaviour
 ldapUserSyncMappings:
   drupal: {  }
