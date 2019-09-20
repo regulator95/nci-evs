@@ -1,0 +1,8 @@
+metathesaurus.library:
+  css:
+    theme:
+      css/metathesaurus.css: {}
+  js:
+    js/metathesaurus..js: {}     
+  dependencies:
+    - core/jquery 

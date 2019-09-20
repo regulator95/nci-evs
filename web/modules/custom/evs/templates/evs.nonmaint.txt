@@ -1,0 +1,87 @@
+<VirtualHost  10.133.196.209:443>
+
+ServerName evs.nci.nih.gov
+ServerAlias www.evs.nci.nih.gov 
+ServerAlias evs-prod-sg.nci.nih.gov
+
+	SSLEngine On
+        #SSLCertificateFile        /local/content/apache/conf/ssl.crt/default.wildcard.nci.nih.gov.crt
+        #SSLCertificateKeyFile     /local/content/apache/conf/ssl.key/default.wildcard.nci.nih.gov.key
+        SSLCertificateFile        /local/content/apache/conf/ssl.crt/evs.nci.nih.gov.crt
+        SSLCertificateKeyFile     /local/content/apache/conf/ssl.key/evs.nci.nih.gov.key
+        SSLCertificateChainFile   /local/content/apache/conf/ssl.crt/DigiCertCA.crt
+
+	Header always set Strict-Transport-Security "max-age=31536000; preload"        
+
+	CustomLog /local/content/apache/logs/evs/access.log combined env=!dontlog
+        ErrorLog /local/content/apache/logs/evs/error.log
+	Include /local/content/apache/conf/logger.conf
+
+        <IfModule php7_module>
+                AddType application/x-httpd-php .php
+                AddType application/x-httpd-php-source .phps
+                DirectoryIndex index.html index.php
+        </IfModule>
+
+        DocumentRoot "/local/drupal/drupal"
+        DirectoryIndex index.html index.htm index.php
+
+        Header edit Set-Cookie "(?i)^((?:(?!;\s?HttpOnly).)+)$" "$1; HttpOnly"
+        Header edit Set-Cookie "(?i)^((?:(?!;\s?Secure).)+)$" "$1; Secure"
+        Header always edit Set-Cookie "(?i)^((?:(?!;\s?HttpOnly).)+)$" "$1; HttpOnly"
+        Header always edit Set-Cookie "(?i)^((?:(?!;\s?Secure).)+)$" "$1; Secure"
+
+        SetEnvIf SM_USER "(.*)" HTTP_SM_USER=$1
+        SetEnvIf SM_AUTHTYPE "(.*)" HTTP_SM_AUTHTYPE=$1
+        SetEnvIf USER_EMAIL "(.*)" HTTP_USER_EMAIL=$1
+        SetEnvIf USER_ORG "(.*)" HTTP_USER_ORG=$1
+        SetEnvIf USER_SUB_ORG "(.*)" HTTP_USER_SUB_ORG=$1
+
+        # next for google analytics verification
+        #Alias "/docs" "/var/web"
+        Alias "/analytics.txt" "/local/drupal/drupal/evs-analytics.txt"
+
+
+        <Directory "/local/drupal/drupal">
+                Options none
+                AllowOverride All
+                Require all granted
+        </Directory>
+
+
+	Alias /ftp1 /share/content/evs/ftp1
+
+        <Directory /share/content/evs/ftp1/>
+                IndexOptions FancyIndexing NameWidth=*
+                Options +Indexes
+                Require all granted
+        </Directory>
+
+	RewriteEngine On
+
+ #     notworking  RewriteRule ^/ftp1/NDF-RT/.*$ /ftp1/NDF-RT/RedirectNotice.txt [NC,R,L]
+  #not working      RewriteRule ^/ftp1/FDA/ndfrt(/.*)?$ /ftp1/FDA/ndfrt/RedirectNotice.txt [NC,R,L]
+
+	RedirectMatch ^/ftp1/NDF-RT/NDF-RT.txt /ftp1/NDF-RT/RedirectNotice.txt
+	RedirectMatch ^/ftp1/NDF-RT/NDF-RT_XML.zip /ftp1/NDF-RT/RedirectNotice.txt
+	RedirectMatch ^/ftp1/NDF-RT/NDF-RT_XML_Inferred.zip /ftp1/NDF-RT/RedirectNotice.txt
+	RedirectMatch ^/ftp1/NDF-RT/NDFRT_Public_All.zip /ftp1/NDF-RT/RedirectNotice.txt
+	RedirectMatch ^/ftp1/FDA/ndfrt/MechanismOfAction.txt /ftp1/FDA/ndfrt/RedirectNotice.txt
+	RedirectMatch ^/ftp1/FDA/ndfrt/MechanismOfAction.xls /ftp1/FDA/ndfrt/RedirectNotice.txt
+	RedirectMatch ^/ftp1/FDA/ndfrt/PhysiologicEffect.txt /ftp1/FDA/ndfrt/RedirectNotice.txt
+	RedirectMatch ^/ftp1/FDA/ndfrt/PhysiologicEffect.xls /ftp1/FDA/ndfrt/RedirectNotice.txt
+	RedirectMatch ^/ftp1/FDA/ndfrt/StructuralClass.txt /ftp1/FDA/ndfrt/RedirectNotice.txt
+	RedirectMatch ^/ftp1/FDA/ndfrt/StructuralClass.xls /ftp1/FDA/ndfrt/RedirectNotice.txt
+
+        # This directive serves the NCICBDownload section hosted as a tomcat webapp on nciws-p679-v
+        RedirectMatch ^/evs-download/download$ /evs-download/download/
+        RedirectMatch ^/thesaurus-downloads$ /evs-download/thesaurus-downloads/
+        RedirectMatch ^/metathesaurus-downloads$ /evs-download/metathesaurus-downloads/
+        RedirectMatch ^/lexevs-downloads$ /evs-download/lexevs-downloads/
+
+        <Location /evs-download/download/>
+                Proxypass ajp://nciws-p679-v.nci.nih.gov:18009/download/
+        </Location>
+
+
+</VirtualHost>

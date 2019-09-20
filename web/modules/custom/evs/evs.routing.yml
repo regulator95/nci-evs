@@ -1,0 +1,7 @@
+evs.metathesarurus.content:
+  path: '/evs-download/metathesaurus-downloads/metval'
+  defaults:
+    _controller: '\Drupal\evs\Controller\EvsController::metathesarurus'
+    _title: 'Metval'
+  requirements:
+    _permission: 'access content'
