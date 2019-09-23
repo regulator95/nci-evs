@@ -1,6 +1,0 @@
-name: EVS for NCI
-description: Custom pages for evs.
-package: Custom
-type: module
-version: 8.7.7
-core: 8.x
