@@ -19,8 +19,6 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
-  delete_all: 0
-  devel: 0
   diff: 0
   dynamic_page_cache: 0
   editor: 0
@@ -34,7 +32,7 @@ module:
   history: 0
   image: 0
   imce: 0
-  jquery_migrate: 0
+  ldap_authentication: 0
   ldap_help: 0
   ldap_query: 0
   ldap_servers: 0
@@ -44,7 +42,6 @@ module:
   metatag: 0
   migrate: 0
   migrate_drupal: 0
-  migrate_drupal_ui: 0
   module_filter: 0
   module_missing_message_fixer: 0
   node: 0

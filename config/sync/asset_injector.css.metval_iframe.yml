@@ -1,0 +1,17 @@
+uuid: f68e225a-6234-439c-8856-ed12cfe69810
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: metval_iframe
+label: 'Metval iFrame'
+code: "#block-nci-barrio-content > h2 {\r\n  display:none;\r\n}\r\niframe {\r\n  border: 0px;\r\n}"
+media: all
+preprocess: true
+conditions:
+  request_path:
+    id: request_path
+    pages: /metval
+    negate: false
+conditions_require_all: true
