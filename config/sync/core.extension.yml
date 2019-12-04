@@ -23,7 +23,6 @@ module:
   dynamic_page_cache: 0
   editor: 0
   exclude_node_title: 0
-  externalauth: 0
   field: 0
   field_ui: 0
   file: 0
@@ -32,22 +31,19 @@ module:
   history: 0
   image: 0
   imce: 0
-  ldap_authentication: 0
   ldap_help: 0
-  ldap_query: 0
   ldap_servers: 0
   ldap_user: 0
   link: 0
   menu_ui: 0
   metatag: 0
-  migrate: 0
-  migrate_drupal: 0
   module_filter: 0
   module_missing_message_fixer: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
+  path_alias: 0
   quickedit: 0
   rdf: 0
   redirect: 0
@@ -70,6 +66,7 @@ module:
   menu_link_content: 1
   pathauto: 1
   xmlsitemap: 1
+  externalauth: 10
   views: 10
   standard: 1000
 theme:

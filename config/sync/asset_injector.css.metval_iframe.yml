@@ -6,7 +6,7 @@ dependencies:
     - system
 id: metval_iframe
 label: 'Metval iFrame'
-code: "#block-nci-barrio-content > h2 {\r\n  display:none;\r\n}\r\niframe {\r\n  border: 0px;\r\n}"
+code: "iframe {\r\n  border: 0px;\r\n}\r\n"
 media: all
 preprocess: true
 conditions:

@@ -1,0 +1,17 @@
+uuid: d31e7cdc-290b-4818-9271-47eec250a52e
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor
+label: 'Content Editor'
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access in-place editing'
+  - 'edit any page content'
+  - 'use text format full_html'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view the administration theme'
