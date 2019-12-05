@@ -28,7 +28,7 @@
         "drupal/config_sync": "^2.0@beta",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.8.0-beta1@beta",
-        "drupal/devel": "^2.1",
+        "drupal/devel": "3.0-beta1@beta",
         "drupal/diff": "^1.0@RC",
         "drupal/exclude_node_title": "^1.0@beta",
         "drupal/extlink": "^1.1",
