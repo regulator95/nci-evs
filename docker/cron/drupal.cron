@@ -1,0 +1,1 @@
+*/10 * * * * rm /mnt/s3fs/ftp1/index.html; curl 0.0.0.0:80/ftp1/ -o /mnt/s3fs/ftp1/index.html   
